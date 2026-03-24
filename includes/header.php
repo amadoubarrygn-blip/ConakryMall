@@ -42,6 +42,24 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 </head>
 <body>
 
+    <!-- ======= SPLASH SCREEN (first visit only) ======= -->
+    <div class="splash-screen" id="splash-screen">
+        <img src="<?= asset('img/logo-white.png') ?>" alt="Conakry Mall" class="splash-logo">
+        <div class="splash-bar"><div class="splash-bar-fill"></div></div>
+        <div class="splash-text">Chargement...</div>
+    </div>
+    <script>
+    if (sessionStorage.getItem('visited')) {
+        document.getElementById('splash-screen').style.display = 'none';
+    } else {
+        sessionStorage.setItem('visited', '1');
+        setTimeout(function() {
+            var s = document.getElementById('splash-screen');
+            if (s) { s.classList.add('hide'); setTimeout(function() { s.style.display = 'none'; }, 600); }
+        }, 2200);
+    }
+    </script>
+
     <!-- ======= HEADER ======= -->
     <header class="header" id="header">
         <div class="container">

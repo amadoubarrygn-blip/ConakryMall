@@ -1,6 +1,7 @@
 <?php
 /**
  * Grand Mall de Conakry — Boutiques
+ * Version 2.0 — Enhanced with hero image and category visuals
  */
 require_once __DIR__ . '/includes/functions.php';
 bootstrap();
@@ -16,14 +17,18 @@ $pageDescription = 'Découvrez les boutiques et enseignes du Grand Mall de Conak
 require_once INCLUDES_PATH . 'header.php';
 ?>
 
-    <section class="page-hero">
-        <div class="container">
+    <!-- ======= HERO ======= -->
+    <section class="page-hero page-hero-image">
+        <div class="page-hero-bg" style="background-image: url('<?= asset('img/project/facade-boutiques.jpg') ?>')"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="container" style="position:relative;z-index:2;">
             <span class="section-label" data-aos="fade-up">Nos Enseignes</span>
             <h1 data-aos="fade-up" data-aos-delay="100">Les <span class="gold">Boutiques</span></h1>
             <p data-aos="fade-up" data-aos-delay="200"><?= count($boutiques) ?> enseigne<?= count($boutiques) > 1 ? 's' : '' ?> pour tous vos besoins</p>
         </div>
     </section>
 
+    <!-- ======= BOUTIQUES ======= -->
     <section class="section">
         <div class="container">
             <!-- Filtres -->
@@ -38,9 +43,10 @@ require_once INCLUDES_PATH . 'header.php';
 
             <?php if (empty($boutiques)): ?>
                 <div class="empty-state-public" data-aos="fade-up">
-                    <div class="empty-icon">🏪</div>
+                    <div class="empty-icon">🛍️</div>
                     <h3>Bientôt disponible</h3>
                     <p>Les boutiques seront annoncées prochainement. Restez connectés !</p>
+                    <a href="<?= SITE_URL ?>/contact.php" class="btn btn-outline" style="margin-top:1.5rem;">✉️ Être informé</a>
                 </div>
             <?php else: ?>
             <div class="boutiques-grid">
@@ -64,6 +70,21 @@ require_once INCLUDES_PATH . 'header.php';
                 <?php endforeach; ?>
             </div>
             <?php endif; ?>
+        </div>
+    </section>
+
+    <!-- ======= CTA ======= -->
+    <section class="cta-section cta-image">
+        <div class="cta-bg" style="background-image: url('<?= asset('img/services/service_magasins_v2.png') ?>')"></div>
+        <div class="cta-overlay"></div>
+        <div class="container" data-aos="fade-up" style="position:relative;z-index:2;">
+            <span class="section-label">Enseignes</span>
+            <h2>Votre enseigne au Grand Mall ?</h2>
+            <p>Rejoignez le plus grand centre commercial de Guinée et bénéficiez d'une visibilité exceptionnelle.</p>
+            <div class="hero-buttons" style="justify-content: center;">
+                <a href="<?= SITE_URL ?>/contact.php" class="btn btn-gold btn-lg magnetic-btn">✉️ Devenir partenaire</a>
+                <a href="<?= SITE_URL ?>/espaces-services.php" class="btn btn-outline btn-lg magnetic-btn">🏢 Voir les espaces</a>
+            </div>
         </div>
     </section>
 
