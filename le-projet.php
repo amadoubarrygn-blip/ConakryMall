@@ -46,7 +46,9 @@ require_once INCLUDES_PATH . 'header.php';
                         touristique du pays.
                     </p>
                 </div>
-                <div class="project-visual" data-aos="fade-left">🏗️</div>
+                <div class="project-visual" data-aos="fade-left">
+                    <img src="<?= asset('img/project/entree-principale.jpg') ?>" alt="Grand Mall de Conakry — Entrée principale" loading="lazy">
+                </div>
             </div>
         </div>
     </section>
