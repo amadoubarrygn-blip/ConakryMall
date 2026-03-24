@@ -43,21 +43,25 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 <body>
 
     <!-- ======= SPLASH SCREEN (first visit only) ======= -->
-    <div class="splash-screen" id="splash-screen">
-        <img src="<?= asset('img/logo-white.png') ?>" alt="Conakry Mall" class="splash-logo">
-        <div class="splash-bar"><div class="splash-bar-fill"></div></div>
-        <div class="splash-text">Chargement...</div>
+    <div id="splash-screen" style="position:fixed;inset:0;z-index:9999999;background:#0A1628;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.4s ease;">
+        <img src="<?= asset('img/logo-white.png') ?>" alt="Conakry Mall" style="width:100px;height:auto;margin-bottom:1.5rem;animation:splashP 1.2s ease-in-out infinite;">
+        <div style="width:180px;height:3px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;">
+            <div style="height:100%;width:0;background:linear-gradient(90deg,#C9A351,#E8D48B);border-radius:2px;animation:splashF 0.9s ease-out forwards;"></div>
+        </div>
+        <div style="margin-top:1.2rem;color:rgba(255,255,255,0.4);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;font-family:sans-serif;">Chargement...</div>
     </div>
+    <style>@keyframes splashP{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}@keyframes splashF{0%{width:0}100%{width:100%}}</style>
     <script>
-    if (sessionStorage.getItem('visited')) {
-        document.getElementById('splash-screen').style.display = 'none';
-    } else {
-        sessionStorage.setItem('visited', '1');
-        setTimeout(function() {
-            var s = document.getElementById('splash-screen');
-            if (s) { s.classList.add('hide'); setTimeout(function() { s.style.display = 'none'; }, 600); }
-        }, 2200);
-    }
+    (function(){
+        var s=document.getElementById('splash-screen');
+        if(!s)return;
+        if(sessionStorage.getItem('gcm_v')){s.remove();return;}
+        sessionStorage.setItem('gcm_v','1');
+        function hide(){if(!s||s.dataset.h)return;s.dataset.h='1';s.style.opacity='0';setTimeout(function(){s.remove();},500);}
+        setTimeout(hide,1200);
+        window.addEventListener('load',function(){setTimeout(hide,200);});
+        setTimeout(function(){if(s&&!s.dataset.h){s.remove();}},3000);
+    })();
     </script>
 
     <!-- ======= HEADER ======= -->

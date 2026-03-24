@@ -309,22 +309,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, 100);
 
-    // === PAGE TRANSITIONS ===
-    const ptOverlay = document.getElementById('page-transition');
-    if (ptOverlay) {
-        // Fade out on page load
-        ptOverlay.classList.remove('active');
-
-        // Intercept internal link clicks for smooth transition
-        document.querySelectorAll('a[href]').forEach(link => {
-            const href = link.getAttribute('href');
-            if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:') || link.target === '_blank' || href.startsWith('http') && !href.includes(window.location.hostname)) return;
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                ptOverlay.classList.add('active');
-                setTimeout(() => { window.location.href = href; }, 400);
-            });
-        });
-    }
-
 });

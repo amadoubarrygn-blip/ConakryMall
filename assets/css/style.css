@@ -520,7 +520,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .splash-bar-fill {
   height: 100%; width: 0; background: var(--gradient-gold); border-radius: 2px;
-  animation: splashFill 1.8s ease-out forwards;
+  animation: splashFill 0.8s ease-out forwards;
 }
 .splash-text {
   margin-top: 1.5rem; color: var(--text-muted); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
