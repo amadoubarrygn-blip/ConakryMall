@@ -320,6 +320,16 @@ a:hover { color: var(--admin-gold-light); }
 }
 
 /* === Forms === */
+.form-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    min-width: 0;
+}
+
 .form-group {
     margin-bottom: 1.25rem;
 }
