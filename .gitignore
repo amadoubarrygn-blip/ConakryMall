@@ -1,0 +1,40 @@
+# === cPanel / Hosting ===
+.cpanel/
+.htpasswds/
+.spamassassin/
+.trash/
+.lastlogin
+.spamassassinenable
+.spamassassinboxenable
+access-logs
+logs/
+tmp/analog/
+tmp/awstats/
+tmp/webalizer/
+tmp/webalizerftp/
+
+# === OS ===
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# === IDE ===
+.vscode/
+.idea/
+*.sublime-*
+
+# === Dependencies ===
+node_modules/
+vendor/
+
+# === Environment ===
+.env
+.env.local
+.env.*.local
+
+# === Build ===
+dist/
+build/
+*.map
