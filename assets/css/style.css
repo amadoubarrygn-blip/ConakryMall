@@ -366,15 +366,34 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* === STATS === */
-.stats-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
-.stat-item { padding: 2.5rem 1rem; }
+.stats-section {
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(201,163,81,0.03) 100%);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+.stats-section::before {
+  content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(201,163,81,0.04) 0%, transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; position: relative; z-index: 1; }
+.stat-item {
+  padding: 2.5rem 1rem; border-radius: var(--r-xl);
+  transition: all var(--t-base); position: relative;
+}
+.stat-item::after {
+  content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 3px; background: var(--gradient-gold); border-radius: 2px;
+  opacity: 0; transition: opacity var(--t-base);
+}
+.stat-item:hover { background: rgba(201,163,81,0.05); }
+.stat-item:hover::after { opacity: 1; }
 .stat-number {
   font-family: var(--font-heading); font-size: clamp(2.5rem, 4vw, 3.5rem);
-  font-weight: 900; color: var(--gold); line-height: 1;
+  font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.5rem;
 }
-.stat-unit { font-size: 0.6em; color: var(--gold-light); font-weight: 600; }
-.stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; }
+.stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.02em; }
 
 /* === PROJECT SECTION === */
 .project-content { display: flex; align-items: center; gap: 4rem; }

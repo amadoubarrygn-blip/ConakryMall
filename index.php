@@ -132,13 +132,8 @@ require_once INCLUDES_PATH . 'header.php';
             ?>
             <div class="services-grid">
                 <?php foreach ($services as $i => $service): 
-                    // Recherche d'image approximative si le nom diffère un peu
-                    $imgName = 'service_magasins_v2.png'; // Default
-                    foreach ($serviceImages as $key => $data) {
-                        if (stripos($service['name'], explode(' ', $key)[0]) !== false) {
-                            $imgName = $data; break;
-                        }
-                    }
+                    // Association exacte par nom de service
+                    $imgName = $serviceImages[$service['name']] ?? 'service_magasins_v2.png';
                     $bgImage = asset('img/services/' . $imgName);
                 ?>
                 <div class="service-card tilt-card" data-aos="fade-up" data-aos-delay="<?= min($i * 80, 320) ?>">
@@ -156,25 +151,25 @@ require_once INCLUDES_PATH . 'header.php';
     <!-- ======= CHIFFRES CLÉS ======= -->
     <section class="section stats-section" id="chiffres">
         <div class="container">
+            <div class="section-header" data-aos="fade-up" style="margin-bottom:2rem;">
+                <span class="section-label">En chiffres</span>
+                <h2 class="section-title">Un projet d'envergure</h2>
+            </div>
             <div class="stats-grid">
                 <div class="stat-item" data-aos="fade-up">
-                    <div class="stat-number" data-count="83000">0</div>
-                    <div class="stat-unit">m²</div>
+                    <div class="stat-number" data-count="83000" data-suffix=" m²">0</div>
                     <div class="stat-label">Superficie totale</div>
                 </div>
                 <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-number" data-count="4">0</div>
-                    <div class="stat-unit">niveaux</div>
+                    <div class="stat-number" data-count="4" data-suffix=" niveaux">0</div>
                     <div class="stat-label">2 sous-sols + RDC + étage</div>
                 </div>
                 <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-number" data-count="20">0</div>
-                    <div class="stat-unit">escalators</div>
+                    <div class="stat-number" data-count="20" data-suffix=" escalators">0</div>
                     <div class="stat-label">Circulation verticale</div>
                 </div>
                 <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-number" data-count="9">0</div>
-                    <div class="stat-unit">ascenseurs</div>
+                    <div class="stat-number" data-count="9" data-suffix=" ascenseurs">0</div>
                     <div class="stat-label">Accessibilité totale</div>
                 </div>
             </div>
@@ -294,9 +289,5 @@ require_once INCLUDES_PATH . 'header.php';
             </div>
         </div>
     </section>
-
-    <!-- Custom cursor -->
-    <div class="custom-cursor" id="cursor"></div>
-    <div class="custom-cursor-follower" id="cursor-follower"></div>
 
 <?php require_once INCLUDES_PATH . 'footer.php'; ?>
