@@ -3,6 +3,7 @@
 > **Dernière mise à jour** : 24 Mars 2026
 > **Version** : 0.1.0
 > **Phase actuelle** : Phase 0 — Infrastructure ✅ | Phase 1 — En attente du cahier des charges
+> **GitHub** : [amadoubarrygn-blip/ConakryMall](https://github.com/amadoubarrygn-blip/ConakryMall)
 
 ---
 
@@ -33,7 +34,7 @@ public_html/
 
 ## Connexion GitHub
 
-⏳ **Non connecté** — en attente du nom d'utilisateur et PAT
+✅ **Connecté** — `https://github.com/amadoubarrygn-blip/ConakryMall` (branche `main`)
 
 ## Prochaine action attendue
 

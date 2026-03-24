@@ -15,7 +15,7 @@ Créer un site web professionnel, fonctionnel et sécurisé, construit de maniè
 - [x] Sécurité `.htaccess` en place
 - [x] Workflows Antigravity créés
 - [x] Base de connaissances structurée
-- [ ] Connexion GitHub (en attente du PAT)
+- [x] Connexion GitHub (`amadoubarrygn-blip/ConakryMall`)
 
 ### Phase 1 — Construction du site (EN ATTENTE)
 > ⏳ En attente du cahier des charges de l'utilisateur
@@ -35,6 +35,6 @@ Créer un site web professionnel, fonctionnel et sécurisé, construit de maniè
 
 ## Priorités actuelles
 
-1. 🔴 **Connecter GitHub** — en attente des identifiants
+1. ✅ ~~Connecter GitHub~~ — fait
 2. 🔴 **Recevoir le cahier des charges** — prochaine étape
 3. 🟡 **Construire le site** — après réception du cahier des charges
