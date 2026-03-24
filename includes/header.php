@@ -18,6 +18,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
     <meta property="og:description" content="<?= e($pageDescription ?? SITE_DESCRIPTION) ?>">
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?= SITE_URL ?>">
+    <meta property="og:image" content="<?= asset('img/logo-dark.png') ?>">
 
     <title><?= e(isset($pageTitle) ? "$pageTitle — $siteName" : $siteName) ?></title>
 
@@ -34,7 +35,8 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
     <link rel="stylesheet" href="<?= asset('css/style.css') ?>">
 
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏬</text></svg>">
+    <link rel="icon" type="image/png" href="<?= asset('img/logo-dark.png') ?>">
+    <link rel="apple-touch-icon" href="<?= asset('img/logo-dark.png') ?>">
 
     <?php if (isset($extraHead)) echo $extraHead; ?>
 </head>
@@ -44,11 +46,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
     <header class="header" id="header">
         <div class="container">
             <a href="<?= SITE_URL ?>/" class="logo">
-                <div class="logo-icon">🏬</div>
-                <div class="logo-text">
-                    <span class="logo-name">Grand Mall</span>
-                    <span class="logo-sub">de Conakry</span>
-                </div>
+                <img src="<?= asset('img/logo-white.png') ?>" alt="Conakry Mall" class="logo-img">
             </a>
 
             <nav class="nav" id="navbar">

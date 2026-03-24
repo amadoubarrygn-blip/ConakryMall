@@ -4,11 +4,7 @@
             <div class="footer-top">
                 <div class="footer-brand" data-aos="fade-up">
                     <a href="<?= SITE_URL ?>/" class="logo">
-                        <div class="logo-icon">🏬</div>
-                        <div class="logo-text">
-                            <span class="logo-name">Grand Mall</span>
-                            <span class="logo-sub">de Conakry</span>
-                        </div>
+                        <img src="<?= asset('img/logo-white.png') ?>" alt="Conakry Mall" class="logo-img">
                     </a>
                     <p>Le plus grand centre commercial de Guinée. 83 000 m² de shopping, divertissement et bien-être au cœur de Conakry.</p>
                     <div class="footer-social">

@@ -6,11 +6,9 @@ $currentAdminPage = basename($_SERVER['PHP_SELF'], '.php');
 ?>
 <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
-        <div class="sidebar-logo">🏬</div>
-        <div>
-            <h2>Grand Mall</h2>
-            <span class="sidebar-badge">Admin</span>
-        </div>
+        <a href="<?= SITE_URL ?>/admin/" class="sidebar-logo-link">
+            <img src="<?= asset('img/logo-white.png') ?>" alt="Conakry Mall" class="sidebar-logo-img">
+        </a>
     </div>
     <nav class="sidebar-nav">
         <a href="<?= SITE_URL ?>/admin/" class="nav-item <?= $currentAdminPage === 'index' ? 'active' : '' ?>"><span class="nav-icon">📊</span> Dashboard</a>
