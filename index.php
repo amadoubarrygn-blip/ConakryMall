@@ -117,9 +117,32 @@ require_once INCLUDES_PATH . 'header.php';
                 <p class="section-desc">Un centre commercial pensé pour offrir une expérience complète : shopping, loisirs, gastronomie et bien-être.</p>
             </div>
 
+            <?php
+            // Mapping des images de fond par type de service
+            $serviceImages = [
+                'Shopping & Boutiques' => ['project/', 'facade-boutiques.jpg'],
+                'Hypermarché & Alimentation' => ['project/', 'galerie-marchande.jpg'], // Assuming default or close match
+                'Divertissement & Loisirs' => ['project/', 'cinema-route.jpg'],
+                'Restauration & Gastronomie' => ['project/', 'esplanade-fontaines.jpg'],
+                'Bien-être & Sport' => ['lifestyle/', 'shopping-girl-bag.png'], // Fashion/Lifestyle
+                'Événementiel & Culture' => ['project/', 'esplanade-cinema.jpg'],
+                'Services Banques & Auto' => ['project/', 'vue-satellite.jpg']
+            ];
+            ?>
             <div class="services-grid">
-                <?php foreach ($services as $i => $service): ?>
+                <?php foreach ($services as $i => $service): 
+                    // Recherche d'image approximative si le nom diffère un peu
+                    $imgData = ['project/', 'galerie-marchande.jpg']; // Default
+                    foreach ($serviceImages as $key => $data) {
+                        if (stripos($service['name'], explode(' ', $key)[0]) !== false) {
+                            $imgData = $data; break;
+                        }
+                    }
+                    $bgImage = asset('img/' . $imgData[0] . $imgData[1]);
+                ?>
                 <div class="service-card tilt-card" data-aos="fade-up" data-aos-delay="<?= min($i * 80, 320) ?>">
+                    <div class="service-bg" style="background-image: url('<?= $bgImage ?>')"></div>
+                    <div class="service-overlay"></div>
                     <div class="service-icon"><?= e($service['icon']) ?></div>
                     <h3><?= e($service['name']) ?></h3>
                     <p><?= e($service['short_description']) ?></p>

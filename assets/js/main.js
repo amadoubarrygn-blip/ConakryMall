@@ -130,44 +130,80 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(update);
     }
 
-    // === CUSTOM CURSOR ===
-    const cursor = document.getElementById('cursor');
-    const follower = document.getElementById('cursor-follower');
-    if (cursor && follower && window.innerWidth > 1024) {
-        let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0, followerX = 0, followerY = 0;
+    // === ADVANCED MOUSE TRAIL CURSOR ===
+    const isDesktop = window.innerWidth > 1024;
+    // Remove old cursor elements if any (fallback handling)
+    const oldCursor = document.getElementById('cursor');
+    const oldFollower = document.getElementById('cursor-follower');
+    if (oldCursor) oldCursor.remove();
+    if (oldFollower) oldFollower.remove();
+
+    if (isDesktop) {
+        // Create new trail elements
+        const trailElements = [];
+        const numDots = 12;
+        for (let i = 0; i < numDots; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'cursor-trail-dot';
+            document.body.appendChild(dot);
+            trailElements.push({
+                element: dot,
+                x: window.innerWidth / 2,
+                y: window.innerHeight / 2
+            });
+        }
+
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
 
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            cursor.classList.add('active');
-            follower.classList.add('active');
+            trailElements.forEach(item => item.element.style.opacity = '1');
         });
 
         document.addEventListener('mouseleave', () => {
-            cursor.classList.remove('active');
-            follower.classList.remove('active');
+            trailElements.forEach(item => item.element.style.opacity = '0');
         });
 
-        // Hover effect on interactive elements
-        const hoverTargets = document.querySelectorAll('a, button, .service-card, .news-card, .boutique-card, .gallery-preview-item, .gallery-item');
-        hoverTargets.forEach(el => {
-            el.addEventListener('mouseenter', () => follower.classList.add('hovering'));
-            el.addEventListener('mouseleave', () => follower.classList.remove('hovering'));
+        // Hover effect for links
+        let isHovering = false;
+        const interactionTargets = document.querySelectorAll('a, button, .service-card, .news-card, .boutique-card, .gallery-preview-item');
+        interactionTargets.forEach(el => {
+            el.addEventListener('mouseenter', () => isHovering = true);
+            el.addEventListener('mouseleave', () => isHovering = false);
         });
 
-        function animateCursor() {
-            cursorX += (mouseX - cursorX) * 0.2;
-            cursorY += (mouseY - cursorY) * 0.2;
-            followerX += (mouseX - followerX) * 0.08;
-            followerY += (mouseY - followerY) * 0.08;
+        function animateTrail() {
+            let x = mouseX;
+            let y = mouseY;
 
-            cursor.style.transform = `translate(${cursorX - 4}px, ${cursorY - 4}px)`;
-            follower.style.transform = `translate(${followerX - 18}px, ${followerY - 18}px)`;
-            requestAnimationFrame(animateCursor);
+            trailElements.forEach((item, index) => {
+                // Ease towards the target (the previous dot or mouse)
+                item.x += (x - item.x) * 0.3;
+                item.y += (y - item.y) * 0.3;
+
+                // Set scale based on hover and index
+                const scale = isHovering && index === 0 ? 3 : (1 - index / numDots);
+                const opacity = isHovering && index > 0 ? 0 : (1 - index / numDots);
+
+                item.element.style.transform = `translate(${item.x}px, ${item.y}px) scale(${scale})`;
+                if (!isHovering) item.element.style.opacity = opacity;
+
+                // Update target for the next dot to be the current dot's position
+                x = item.x;
+                y = item.y;
+            });
+
+            requestAnimationFrame(animateTrail);
         }
-        animateCursor();
+        animateTrail();
+
+        // Hide default cursor
         document.body.style.cursor = 'none';
-        document.querySelectorAll('a, button').forEach(el => el.style.cursor = 'none');
+        document.querySelectorAll('a, button, input, select, textarea').forEach(el => {
+            el.style.cursor = 'none';
+        });
     }
 
     // === PARALLAX ON SCROLL ===
