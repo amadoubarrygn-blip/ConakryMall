@@ -118,27 +118,28 @@ require_once INCLUDES_PATH . 'header.php';
             </div>
 
             <?php
-            // Mapping des images de fond par type de service
+            // Mapping des images générées "Waouh" par type de service
             $serviceImages = [
-                'Shopping & Boutiques' => ['project/', 'facade-boutiques.jpg'],
-                'Hypermarché & Alimentation' => ['project/', 'galerie-marchande.jpg'], // Assuming default or close match
-                'Divertissement & Loisirs' => ['project/', 'cinema-route.jpg'],
-                'Restauration & Gastronomie' => ['project/', 'esplanade-fontaines.jpg'],
-                'Bien-être & Sport' => ['lifestyle/', 'shopping-girl-bag.png'], // Fashion/Lifestyle
-                'Événementiel & Culture' => ['project/', 'esplanade-cinema.jpg'],
-                'Services Banques & Auto' => ['project/', 'vue-satellite.jpg']
+                'Hypermarché' => 'service_hypermarche_v2.png',
+                'Espace Bien-être' => 'service_bien_etre_v2.png',
+                'Cinéma' => 'service_cinema_v2.png',
+                'Aquarium' => 'service_aquarium_v2.png',
+                'Espaces de Jeux' => 'service_jeux_v2.png',
+                'Magasins' => 'service_magasins_v2.png',
+                'Salles d\'Exposition' => 'service_salles_expo_v2.png',
+                'Pôle de Services' => 'service_pole_services_v2.png'
             ];
             ?>
             <div class="services-grid">
                 <?php foreach ($services as $i => $service): 
                     // Recherche d'image approximative si le nom diffère un peu
-                    $imgData = ['project/', 'galerie-marchande.jpg']; // Default
+                    $imgName = 'service_magasins_v2.png'; // Default
                     foreach ($serviceImages as $key => $data) {
                         if (stripos($service['name'], explode(' ', $key)[0]) !== false) {
-                            $imgData = $data; break;
+                            $imgName = $data; break;
                         }
                     }
-                    $bgImage = asset('img/' . $imgData[0] . $imgData[1]);
+                    $bgImage = asset('img/services/' . $imgName);
                 ?>
                 <div class="service-card tilt-card" data-aos="fade-up" data-aos-delay="<?= min($i * 80, 320) ?>">
                     <div class="service-bg" style="background-image: url('<?= $bgImage ?>')"></div>
