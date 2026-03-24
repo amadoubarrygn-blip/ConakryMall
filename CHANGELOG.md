@@ -1,19 +1,22 @@
 # Changelog
 
-Toutes les modifications notables du projet ConakryMall sont documentées dans ce fichier.
-
-Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/).
+Toutes les modifications notables du projet ConakryMall sont documentées ici.
+Format basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/).
 
 ## [0.1.0] - 2026-03-24
 
 ### Ajouté
-- Initialisation du projet avec structure complète
-- Configuration Git locale
-- Fichier `.gitignore` adapté à cPanel
-- Fichier `README.md` avec documentation du projet
-- Workflows Antigravity : `/session-start`, `/deploy`, `/status`
-- Documentation projet : `PROJECT_STATE.md`, `SECURITY.md`
-- Page d'accueil `index.html` avec design premium
-- Design system CSS complet (`assets/css/style.css`)
-- Interactions JavaScript (`assets/js/main.js`)
-- Configuration sécurité `.htaccess` (headers, HTTPS)
+- Structure de l'espace de travail
+- Configuration Git locale (branche `main`)
+- `.gitignore` avec exclusions sécurité + cPanel
+- `.htaccess` sécurisé (headers, HTTPS, CSP, caching, compression)
+- Base de connaissances (`docs/knowledge/`)
+  - `decisions.md` — 4 décisions techniques initiales
+  - `lessons-learned.md` — 3 leçons apprises
+  - `roadmap.md` — phases du projet
+- Documentation (`PROJECT_STATE.md`, `SECURITY.md`)
+- 4 workflows Antigravity (`/session-start`, `/deploy`, `/status`, `/improve`)
+- Page placeholder "en construction"
+
+### Corrigé
+- Suppression du site web prématuré (créé avant réception du cahier des charges)

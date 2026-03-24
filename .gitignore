@@ -1,3 +1,10 @@
+# === Sécurité : fichiers sensibles ===
+docs/.security-notes
+.env
+.env.*
+*.bak
+*.credentials
+
 # === cPanel / Hosting ===
 .cpanel/
 .htpasswds/
@@ -28,11 +35,6 @@ Thumbs.db
 # === Dependencies ===
 node_modules/
 vendor/
-
-# === Environment ===
-.env
-.env.local
-.env.*.local
 
 # === Build ===
 dist/
