@@ -28,13 +28,13 @@ require_once INCLUDES_PATH . 'header.php';
                             <span class="dot"></span> Un projet Kakandé Immo — Groupe Guicopres
                         </div>
                         <h1 data-swiper-parallax="-300">
-                            <span class="thin">Bienvenue au</span><br>
-                            <span class="gold">Conakry Mall</span>
+                            <span class="reveal-text"><span><span class="thin">Bienvenue au</span></span></span><br>
+                            <span class="reveal-text" style="animation-delay: 0.1s"><span><span class="gold">Conakry Mall</span></span></span>
                         </h1>
                         <p data-swiper-parallax="-400">Le plus grand centre commercial de Guinée — 83 000 m² d'expérience shopping, divertissement et bien-être.</p>
                         <div class="hero-buttons" data-swiper-parallax="-500">
-                            <a href="<?= SITE_URL ?>/le-projet.php" class="btn btn-gold btn-lg">Découvrir le projet →</a>
-                            <a href="<?= SITE_URL ?>/contact.php" class="btn btn-outline btn-lg">📍 Nous contacter</a>
+                            <a href="<?= SITE_URL ?>/le-projet.php" class="btn btn-gold btn-lg magnetic-btn">Découvrir le projet →</a>
+                            <a href="<?= SITE_URL ?>/contact.php" class="btn btn-outline btn-lg magnetic-btn">📍 Nous contacter</a>
                         </div>
                     </div>
                 </div>
@@ -46,13 +46,13 @@ require_once INCLUDES_PATH . 'header.php';
                             <span class="dot"></span> Architecture d'exception
                         </div>
                         <h1 data-swiper-parallax="-300">
-                            <span class="thin">Une envergure</span><br>
-                            <span class="gold">Internationale</span>
+                            <span class="reveal-text"><span><span class="thin">Une envergure</span></span></span><br>
+                            <span class="reveal-text" style="animation-delay: 0.1s"><span><span class="gold">Internationale</span></span></span>
                         </h1>
                         <p data-swiper-parallax="-400">83 000 m² de superficie, 51 000 m² d'infrastructure, 20 escalators, 9 ascenseurs — un projet sans précédent en Afrique de l'Ouest.</p>
                         <div class="hero-buttons" data-swiper-parallax="-500">
-                            <a href="<?= SITE_URL ?>/espaces-services.php" class="btn btn-gold btn-lg">Nos espaces →</a>
-                            <a href="<?= SITE_URL ?>/galerie.php" class="btn btn-outline btn-lg">📸 La galerie</a>
+                            <a href="<?= SITE_URL ?>/espaces-services.php" class="btn btn-gold btn-lg magnetic-btn">Nos espaces →</a>
+                            <a href="<?= SITE_URL ?>/galerie.php" class="btn btn-outline btn-lg magnetic-btn">📸 La galerie</a>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,10 @@ require_once INCLUDES_PATH . 'header.php';
 
     <!-- ======= SERVICES ======= -->
     <section class="section section-dark" id="services">
-        <div class="container">
+        <div class="bg-blob gold"></div>
+        <div class="bg-blob blue"></div>
+        <div class="container" style="position:relative;z-index:2;">
+            <div class="section-bg-number">01</div>
             <div class="section-header" data-aos="fade-up">
                 <span class="section-label">Nos Espaces</span>
                 <h2 class="section-title">Tout sous un même toit</h2>
@@ -116,7 +119,7 @@ require_once INCLUDES_PATH . 'header.php';
 
             <div class="services-grid">
                 <?php foreach ($services as $i => $service): ?>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="<?= min($i * 80, 320) ?>">
+                <div class="service-card tilt-card" data-aos="fade-up" data-aos-delay="<?= min($i * 80, 320) ?>">
                     <div class="service-icon"><?= e($service['icon']) ?></div>
                     <h3><?= e($service['name']) ?></h3>
                     <p><?= e($service['short_description']) ?></p>
@@ -157,7 +160,8 @@ require_once INCLUDES_PATH . 'header.php';
     <!-- ======= PROJET avec images ======= -->
     <section class="section" id="projet">
         <div class="container">
-            <div class="project-content">
+            <div class="section-bg-number" style="left:auto;right:0;transform:translateY(-40%)">02</div>
+            <div class="project-content" style="position:relative;z-index:2;">
                 <div class="project-text" data-aos="fade-right">
                     <span class="section-label">Le Projet</span>
                     <h2>Un tournant pour Conakry</h2>
@@ -261,8 +265,8 @@ require_once INCLUDES_PATH . 'header.php';
             <h2>Intéressé par le Grand Mall ?</h2>
             <p>Investisseurs, enseignes, partenaires — rejoignez le plus grand projet commercial de Guinée.</p>
             <div class="hero-buttons" style="justify-content: center;">
-                <a href="<?= SITE_URL ?>/contact.php" class="btn btn-gold btn-lg">✉️ Nous contacter</a>
-                <a href="<?= SITE_URL ?>/galerie.php" class="btn btn-outline btn-lg">📸 Voir la galerie</a>
+                <a href="<?= SITE_URL ?>/contact.php" class="btn btn-gold btn-lg magnetic-btn">✉️ Nous contacter</a>
+                <a href="<?= SITE_URL ?>/galerie.php" class="btn btn-outline btn-lg magnetic-btn">📸 Voir la galerie</a>
             </div>
         </div>
     </section>
