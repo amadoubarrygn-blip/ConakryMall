@@ -1,7 +1,10 @@
 # ===================================
-# ConakryMall — Apache Configuration
-# Version: 0.1.0
+# Grand Mall de Conakry — Apache Configuration
+# Version: 1.0.0
 # ===================================
+
+# === Forcer index.php en priorité ===
+DirectoryIndex index.php index.html
 
 # php -- BEGIN cPanel-generated handler, do not edit
 # Set the "ea-php82" package as the default "PHP" programming language.
