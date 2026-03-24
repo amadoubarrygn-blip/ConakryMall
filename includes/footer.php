@@ -55,8 +55,8 @@
                         <li>✉️ <a href="mailto:<?= e(getSetting('site_email')) ?>"><?= e(getSetting('site_email', 'contact@grandmall.gn')) ?></a></li>
                     </ul>
                     <!-- Mini Map -->
-                    <div class="footer-map" data-aos="fade-up">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.6!2d-13.635!3d9.565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMzMnNTQuMCJOIDEzwrAzOCcwNi4wIlc!5e0!3m2!1sfr!2sgn!4v1" width="100%" height="150" style="border:0;border-radius:12px;margin-top:1rem;filter:brightness(0.8) contrast(1.1);" allowfullscreen="" loading="lazy"></iframe>
+                    <div class="footer-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15631.5!2d-13.628!3d9.555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xf1cd0f94c3d10f9%3A0x3b07bee2e2a1de6e!2sKoloma%2C%20Conakry%2C%20Guinea!5e0!3m2!1sfr!2sgn!4v1" width="100%" height="160" style="border:0;border-radius:12px;margin-top:1rem;filter:brightness(0.85) contrast(1.1);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
