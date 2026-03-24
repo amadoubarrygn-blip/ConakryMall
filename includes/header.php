@@ -42,6 +42,18 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 </head>
 <body>
 
+    <!-- Splash Screen — auto-hides via CSS even if JS fails -->
+    <div id="splash-screen" style="position:fixed;inset:0;z-index:9999999;background:#0A1628;display:flex;flex-direction:column;align-items:center;justify-content:center;animation:splashOut 0.5s ease 1.5s forwards;">
+        <img src="<?= asset('img/logo-white.png') ?>" alt="" style="width:100px;margin-bottom:1.5rem;animation:splashP 1.2s ease-in-out infinite;">
+        <div style="width:180px;height:3px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;"><div style="height:100%;width:0;background:linear-gradient(90deg,#C9A351,#E8D48B);border-radius:2px;animation:splashF 1.2s ease-out forwards;"></div></div>
+    </div>
+    <style>
+    @keyframes splashP{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    @keyframes splashF{0%{width:0}100%{width:100%}}
+    @keyframes splashOut{to{opacity:0;visibility:hidden;pointer-events:none}}
+    </style>
+    <script>if(sessionStorage.getItem('gcm_s')){document.getElementById('splash-screen').remove();}else{sessionStorage.setItem('gcm_s','1');}</script>
+
     <!-- ======= HEADER ======= -->
     <header class="header" id="header">
         <div class="container">
